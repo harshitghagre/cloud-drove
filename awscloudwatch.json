@@ -1,0 +1,18 @@
+{
+  "Resources": {
+    "HighCPUAlarm": {
+      "Type": "AWS::CloudWatch::Alarm",
+      "Properties": {
+        "AlarmName": "HighCPUAlarm",
+        "MetricName": "CPUUtilization",
+        "Namespace": "AWS/EC2",
+        "Statistic": "Average",
+        "Period": 300,
+        "Threshold": 80,
+        "ComparisonOperator": "GreaterThanThreshold",
+        "Dimensions": [{"Name": "InstanceId", "Value": "instance_id"}],
+        "EvaluationPeriods": 1
+      }
+    }
+  }
+}
